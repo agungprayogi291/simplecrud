@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Crypt;
 
 class CategoryController extends Controller
 {
@@ -35,7 +36,8 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $data = Category::findOrfail($id);
+        $_id = Crypt::Decrypt($id);
+        $data = Category::findOrfail($_id);
         return view('category.edit', compact('data'));
     }
 

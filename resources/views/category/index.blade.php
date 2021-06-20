@@ -29,7 +29,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->category_name}}</td>
                                 <td>
-                                    <a href="{{route('category.edit', $item->id)}}"
+                                    <a href="{{route('category.edit',Crypt::Encrypt($item->id))}}"
                                         class="btn btn-primary my-2 mx-2">edit</a>
                                     <form action="{{route('category.destroy', $item->id)}}" method="post">
                                         @csrf
